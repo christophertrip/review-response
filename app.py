@@ -101,11 +101,13 @@ document.addEventListener("DOMContentLoaded", function(event){
     //}, 5000);
     
     // Find the div element with the specified class
+    alert('It exists! 1');
 var divElement = streamlitDoc.querySelector('.viewerBadge_link__1S137');
 
 // Check if the element exists
 if (divElement) {
   // Add the style attribute with the value "display: none;"
+  alert('It exists! 2');
   divElement.style.display = 'none';
 }
     
