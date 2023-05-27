@@ -4,7 +4,7 @@ import openai
 
 st.set_page_config(page_title="Example App", page_icon="🤖")
 
-openai.api_key = ""
+openai.api_key = OPENAI_API
 
 st.title('✍️ Review Response')
 type_of_host = st.selectbox('Choose type of Host:', ('Home Stay 🏠', 'Airbnb Experience 🏄‍♂️'), index=0, help="Choose if this is for a Home Stay or for an Airbnb Experience")
