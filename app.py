@@ -100,6 +100,15 @@ document.addEventListener("DOMContentLoaded", function(event){
         streamlitDoc.getElementsByTagName("footer")[0].innerHTML = "Provided by <a href='https://airbnbconsulting.com' target='_blank' class='css-z3au9t egzxvld2'>Bnb Consulting</a>";
     //}, 5000);
     });
+    
+// Find the div element with the specified class
+var divElement = document.querySelector('.viewerBadge_link__1S137');
+
+// Check if the element exists
+if (divElement) {
+  // Add the style attribute with the value "display: none;"
+  divElement.style.display = 'none';
+}
 </script>
 '''
 components.html(html_string)
