@@ -69,11 +69,11 @@ span#MainMenu {
 }
 
 .viewerBadge_link__1S137 {
-    display: none;
+    display: none!important;
 }
 
 a.viewerBadge_container__1QSob {
-    display: none;
+    display: none!important;
 }
 
 /*
