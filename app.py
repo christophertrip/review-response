@@ -68,10 +68,6 @@ span#MainMenu {
     display: none;
 }
 
-.viewerBadge_link__1S137 {
-    display: none;
-}
-
 /*
 footer {
 margin-bottom: 20px;
