@@ -100,8 +100,8 @@ document.addEventListener("DOMContentLoaded", function(event){
         streamlitDoc.getElementsByTagName("footer")[0].innerHTML = "Provided by <a href='https://airbnbconsulting.com' target='_blank' class='css-z3au9t egzxvld2'>Bnb Consulting</a>";
     
     // Find the div element with the specified class
-var divElement = streamlitDoc.querySelector('.viewerBadge_link__1S137');\
-alert('It exists! 1');
+var divElement = streamlitDoc.querySelector('.viewerBadge_link__1S137');
+//alert('It exists! 1');
 
 // Check if the element exists
 if (divElement) {
