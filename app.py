@@ -68,7 +68,7 @@ span#MainMenu {
     display: none;
 }
 
-.viewerBadge_container__1QSob.styles_viewerBadge__1yB5_ {
+.viewerBadge_link__1S137 {
     display: none;
 }
 
