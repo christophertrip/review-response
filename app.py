@@ -103,6 +103,24 @@ document.addEventListener("DOMContentLoaded", function(event){
         streamlitDoc.getElementsByTagName("footer")[0].innerHTML = "Provided by <a href='https://airbnbconsulting.com' target='_blank' class='css-z3au9t egzxvld2'>Bnb Consulting</a>";
     });
 </script>
+
+<!-- Default Statcounter code for Review Response Tracker
+https://review-response.streamlit.app/ -->
+<script type="text/javascript">
+var sc_project=12886261; 
+var sc_invisible=1; 
+var sc_security="9bcbc58e"; 
+</script>
+<script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js"
+async></script>
+<noscript><div class="statcounter"><a title="web counter"
+href="https://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="https://c.statcounter.com/12886261/0/9bcbc58e/1/"
+alt="web counter"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->
 '''
 components.html(html_string)
 st.markdown(html_string, unsafe_allow_html=True)
