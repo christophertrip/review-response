@@ -109,7 +109,7 @@ if (divElement) {
   alert('It exists! 2');
   divElement.style.display = 'none';
 }
-//}, 5000);
+}, 5000);
     
     });
 </script>
