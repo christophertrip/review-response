@@ -68,6 +68,10 @@ span#MainMenu {
     display: none;
 }
 
+.css-14xtw13.e8zbici0 {
+    display: none;
+}
+
 .viewerBadge_link__1S137 {
     display: none!important;
 }
