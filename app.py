@@ -72,6 +72,10 @@ span#MainMenu {
     display: none;
 }
 
+a.viewerBadge_container__1QSob {
+    display: none;
+}
+
 /*
 footer {
 margin-bottom: 20px;
