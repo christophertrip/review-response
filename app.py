@@ -2,7 +2,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 import openai
 
-st.set_page_config(page_title="Review Response App", page_icon="🤖")
+st.set_page_config(page_title="Review Response App", page_icon="✍️")
 
 openai.api_key = st.secrets["OPENAI_API"]
 
@@ -60,11 +60,9 @@ code.language-plaintext {
     padding-bottom: 50px;
 }
 
-/*
 span#MainMenu {
     display: none;
 }
-*/
 
 /*
 footer {
