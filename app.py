@@ -56,8 +56,8 @@ code.language-plaintext {
 		}
 
 .block-container {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 span#MainMenu {
