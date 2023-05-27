@@ -64,6 +64,10 @@ span#MainMenu {
     display: none;
 }
 
+.stActionButton {
+    display: none;
+}
+
 /*
 footer {
 margin-bottom: 20px;
