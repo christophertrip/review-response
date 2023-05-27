@@ -95,22 +95,21 @@ margin-bottom: 20px;
 <script>
 const streamlitDoc = window.parent.document;
 document.addEventListener("DOMContentLoaded", function(event){
-    setTimeout(function () {
         //alert('Its been 5 seconds');
         streamlitDoc.getElementsByTagName("footer")[0].innerHTML = "Provided by <a href='https://airbnbconsulting.com' target='_blank' class='css-z3au9t egzxvld2'>Bnb Consulting</a>";
     
-    // Find the div element with the specified class
-var divElement = streamlitDoc.querySelector('.viewerBadge_link__1S137');
-//alert('It exists! 1');
+     // Delay the execution of the code by 5 seconds (5000 milliseconds)
+setTimeout(function() {
+  // Find the div element with the specified class
+  var divElement = document.querySelector('.viewerBadge_link__1S137');
 
-// Check if the element exists
-if (divElement) {
-  // Add the style attribute with the value "display: none;"
-  alert('It exists! 2');
-  divElement.style.display = 'none';
-}
+  // Check if the element exists
+  if (divElement) {
+  alert('Its been 5 seconds');
+    // Add the style attribute with the value "display: none;"
+    divElement.style.display = 'none';
+  }
 }, 5000);
-    
     });
 </script>
 '''
