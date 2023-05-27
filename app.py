@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function(event){
      // Delay the execution of the code by 5 seconds (5000 milliseconds)
 setTimeout(function() {
   // Find the div element with the specified class
-  var divElement = document.querySelector('.viewerBadge_link__1S137');
+  var divElement = streamlitDoc.querySelector('.viewerBadge_link__1S137');
 
   // Check if the element exists
   if (divElement) {
