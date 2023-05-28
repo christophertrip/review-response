@@ -80,6 +80,11 @@ a.viewerBadge_container__1QSob {
     display: none!important;
 }
 
+.viewerBadge_link__1S137 {
+display: none;
+visibility:hidden
+}
+
 /*
 footer {
 margin-bottom: 20px;
