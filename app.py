@@ -16,6 +16,8 @@ else:
 guest_name = st.text_input('Guest Name', placeholder="Guest name", label_visibility="collapsed")
 guest_review = st.text_area('Guest Review', placeholder="Paste your Guest's review here.", label_visibility="collapsed", height=150)
 
+response_language = st.selectbox('Choose response language:', ('English 🇺🇸', 'Spanish 🇪🇸', 'French 🇫🇷'), index=0)
+
 # Different for Homes and Experiences
 if type_of_host == "Home Stay 🏠":
 	if response_language == "English 🇺🇸":
@@ -26,8 +28,6 @@ if type_of_host == "Home Stay 🏠":
     		sign_off_text = st.text_input('Custom text at the end of the response: _(Optional)_', 'Vous avez toujours une maison ici avec nous à Playa!', placeholder="Custom text", label_visibility="visible", help="Example: _You always have a home here with us!_")
 else:
     sign_off_text = st.text_input('Custom text at the end of the response: _(Optional)_', 'Pura Vida! 🇨🇷', placeholder="Custom text", label_visibility="visible", help="Example: _Thanks for coming on the adventure!_")
-
-response_language = st.selectbox('Choose response language:', ('English 🇺🇸', 'Spanish 🇪🇸', 'French 🇫🇷'), index=0)
 
 # Different for Homes and Experiences
 if type_of_host == "Home Stay 🏠":
