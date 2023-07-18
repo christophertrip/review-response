@@ -40,7 +40,7 @@ if st.button('Start the Magic  🪄'):
 
     with st.spinner(f"Creating your Reponse..."): 
         response = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=messages)
-        review_response = f'{response["choices"][0]["message"]["content"]}\n\n{sign_off_text}'
+        review_response = f'{response["choices"][0]["message"]["content"]} — {sign_off_text}'
         #review_response = response["choices"][0]["message"]["content"]
         st.divider()
         st.subheader('Review Response')
