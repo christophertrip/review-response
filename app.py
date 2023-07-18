@@ -8,7 +8,11 @@ openai.api_key = st.secrets["OPENAI_API"]
 
 st.title('✍️ Review Response')
 type_of_host = st.selectbox('Choose type of Host:', ('Home Stay 🏠', 'Airbnb Experience 🏄‍♂️'), index=0, help="Choose if this is for a Home Stay or for an Airbnb Experience")
-host_name = st.text_input('Host Name', placeholder="Host name", label_visibility="collapsed")
+hosts = st.checkbox('Chris & Andrea')
+if hosts:
+	host_name = st.text_input('Host Name', 'Chris & Andrea', placeholder="Host name", label_visibility="collapsed")
+else:
+	host_name = st.text_input('Host Name', placeholder="Host name", label_visibility="collapsed")
 guest_name = st.text_input('Guest Name', placeholder="Guest name", label_visibility="collapsed")
 guest_review = st.text_area('Guest Review', placeholder="Paste your Guest's review here.", label_visibility="collapsed", height=150)
 
