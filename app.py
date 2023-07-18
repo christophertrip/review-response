@@ -16,13 +16,13 @@ else:
 guest_name = st.text_input('Guest Name', placeholder="Guest name", label_visibility="collapsed")
 guest_review = st.text_area('Guest Review', placeholder="Paste your Guest's review here.", label_visibility="collapsed", height=150)
 
-response_language = st.selectbox('Choose response language:', ('English 🇺🇸', 'Spanish 🇪🇸', 'French 🇫🇷'), index=0)
+response_language = st.selectbox('Choose response language:', ('English 🇺🇸', 'Spanish 🇲🇽', 'French 🇫🇷'), index=0)
 
 # Different for Homes and Experiences
 if type_of_host == "Home Stay 🏠":
 	if response_language == "English 🇺🇸":
     		sign_off_text = st.text_input('Custom text at the end of the response: _(Optional)_', 'You always have a home here with us in Playa!', placeholder="Custom text", label_visibility="visible", help="Example: _You always have a home here with us!_")
-	elif response_language == "Spanish 🇪🇸":
+	elif response_language == "Spanish 🇲🇽":
     		sign_off_text = st.text_input('Custom text at the end of the response: _(Optional)_', '¡Siempre tienes un hogar aquí con nosotros en Playa!', placeholder="Custom text", label_visibility="visible", help="Example: _You always have a home here with us!_")
 	else:
     		sign_off_text = st.text_input('Custom text at the end of the response: _(Optional)_', 'Vous avez toujours une maison ici avec nous à Playa!', placeholder="Custom text", label_visibility="visible", help="Example: _You always have a home here with us!_")
@@ -40,14 +40,11 @@ if st.button('Start the Magic  🪄'):
 
     with st.spinner(f"Creating your Reponse..."): 
         response = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=messages)
-        review_response = f'{response["choices"][0]["message"]["content"]} {sign_off_text}'
+        review_response = f'{response["choices"][0]["message"]["content"]}\n\n{sign_off_text}'
         #review_response = response["choices"][0]["message"]["content"]
         st.divider()
         st.subheader('Review Response')
         st.code(review_response, language=None)
-
-
-
 
 ################################### Define your JavaScript ########################################
 
