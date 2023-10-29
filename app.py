@@ -10,7 +10,7 @@ st.title('✍️ Review Response')
 type_of_host = st.selectbox('Choose type of Host:', ('Home Stay 🏠', 'Airbnb Experience 🏄‍♂️'), index=0, help="Choose if this is for a Home Stay or for an Airbnb Experience")
 # hosts = st.checkbox('Chris & Andrea')
 if type_of_host == "Home Stay 🏠":
-	host_name = st.text_input('Host Name', 'Chris & Andrea', placeholder="Host name", label_visibility="collapsed")
+	host_name = st.text_input('Host Name', 'Chris, Andrea & Mitchell', placeholder="Host name", label_visibility="collapsed")
 else:
 	host_name = st.text_input('Host Name', placeholder="Host name", label_visibility="collapsed")
 guest_name = st.text_input('Guest Name', placeholder="Guest name", label_visibility="collapsed")
