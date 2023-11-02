@@ -16,6 +16,8 @@ host_name = "Chris, Andrea & Mitchell"
 	#host_name = st.text_input('Host Name', placeholder="Host name", label_visibility="collapsed")
 guest_name = st.text_input('Guest Name', placeholder="Guest name", label_visibility="collapsed")
 guest_review = st.text_area('Guest Review', placeholder="Paste your Guest's review here. AI will automatically detect the language for the reply.", label_visibility="collapsed", height=250)
+guest_review = f'"{guest_review}"'
+print (guest_review)
 
 # response_language = st.selectbox('Choose response language:', ('English 🇺🇸', 'Spanish 🇲🇽', 'French 🇫🇷'), index=0)
 
