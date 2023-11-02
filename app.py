@@ -50,7 +50,7 @@ if st.button('Start the Magic  🪄'):
         st.subheader('Review Response')
         st.code(review_response, language=None)
 	
-	    st.code(guest_review, language=None)
+st.code(guest_review, language=None)
 
 ################################### Define your JavaScript ########################################
 
