@@ -32,7 +32,7 @@ guest_review = st.text_area('Guest Review', placeholder="Paste your Guest's revi
 
 # Different for Homes and Experiences
 #if type_of_host == "Home Stay 🏠":
-messages = [{"role": "system", "content": f'We are Airbnb hosts named {host_name}. We just had one of our guests named {guest_name} leave a very polite review. Please detect the language that the majority of the review is written in and create a very polite reply in the same language as their review in 50 words or less. At the end of the review please append the following text — You always have a home here with us in Playa! Please remember the whole reply needs to be in the same language as the guests review.\n\n"{guest_review}"'}]
+messages = [{"role": "system", "content": f'We are Airbnb hosts named {host_name}. We just had one of our guests named {guest_name} leave a very polite review. Please detect the language that the majority of the review is written in and create a very polite reply in the same language as their review in 50 words or less. It's very important to make the reply in the same language as the guests review. At the end of the review please append the following text — You always have a home here with us in Playa! Please remember the whole reply needs to be in the same language as the guests review.\n\n"{guest_review}"'}]
 #else:
    # messages = [{"role": "system", "content": f'I am an Airbnb Experience host named {host_name}. A guest named {guest_name} left the following review. Please create a very polite reply based on their review in {response_language}, in 50 words or less.\n\n"{guest_review}"'}]
 
