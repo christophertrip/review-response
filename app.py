@@ -11,7 +11,7 @@ st.title('✍️ Review Response')
 # hosts = st.checkbox('Chris & Andrea')
 #if type_of_host == "Home Stay 🏠":
 #host_name = st.text_input('Host Name', 'Chris, Andrea & Mitchell', placeholder="Host name", label_visibility="collapsed")
-host_name = "Chris, Andrea & Mitchell"
+host_name = "Chris & Andrea"
 #else:
 	#host_name = st.text_input('Host Name', placeholder="Host name", label_visibility="collapsed")
 guest_name = st.text_input('Guest Name', placeholder="Guest name", label_visibility="collapsed")
