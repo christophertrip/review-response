@@ -20,11 +20,10 @@ guest_name = st.text_input('Guest Name', placeholder="Guest name", label_visibil
 guest_review = st.text_area('Guest Review', placeholder="Paste your Guest's review here. AI will automatically detect the language for the reply.", label_visibility="collapsed", height=250)
 guest_review = f'"{guest_review}"'
 
+#Language detection
 result = detect_langs(guest_review)
-	if result:
-            # Get the full name of the most probable language
-            lang_code = result[0].lang
-            lang_full_name = Language.get_name(lang_code)
+lang_code = result[0].lang
+lang_full_name = Language.get_name(lang_code)
 
 #print (guest_review)
 
