@@ -1,7 +1,7 @@
 import streamlit as st
 import streamlit.components.v1 as components
 import openai
-from langdetect import detect_langs
+from langdetect import detect
 from langcodes import Language
 
 st.set_page_config(page_title="Review Response App", page_icon="✍️")
