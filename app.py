@@ -1,6 +1,8 @@
 import streamlit as st
 import streamlit.components.v1 as components
 import openai
+from langdetect import detect_langs
+from langcodes import Language
 
 st.set_page_config(page_title="Review Response App", page_icon="✍️")
 
@@ -17,6 +19,13 @@ host_name = "Chris & Andrea"
 guest_name = st.text_input('Guest Name', placeholder="Guest name", label_visibility="collapsed")
 guest_review = st.text_area('Guest Review', placeholder="Paste your Guest's review here. AI will automatically detect the language for the reply.", label_visibility="collapsed", height=250)
 guest_review = f'"{guest_review}"'
+
+result = detect_langs(guest_review)
+	if result:
+            # Get the full name of the most probable language
+            lang_code = result[0].lang
+            lang_full_name = Language.get_name(lang_code)
+
 #print (guest_review)
 
 # response_language = st.selectbox('Choose response language:', ('English 🇺🇸', 'Spanish 🇲🇽', 'French 🇫🇷'), index=0)
@@ -34,9 +43,9 @@ guest_review = f'"{guest_review}"'
 
 # Different for Homes and Experiences
 #if type_of_host == "Home Stay 🏠":
-messages = [{"role": "system", "content": f'Hello wonderful assistant! We are Airbnb hosts. Our names are {host_name}. Each of our guests that stay in our Airbnb rentals leave us a review of their experience. Below is a review from a guest named {guest_name}:\n\n{guest_review}\n\n We need you to create a polite response to the guest review. Do not create a translation of the guest review. We do not want that. We need you to make the response in the same language as the guest review. The default language for the response is English. Before you create the response to the guest review you need to determine what language the guest review is in. To do this we want you to analyze the guest review and then determine what language most of the words are in, not a few words. Just because a few words are in a language it does not mean that you should create the response in that language but instead you need to determine what language the majority of the words are in! Please make the response 50 words or less. Please address the guest by their name in the response. Please thank the guest for each positive comment or remark. It is important that you do not respond to any criticisms from the guest in your response! At the end of the response please sign off by appending the following text "You always have a home here with us in Playa! - {host_name}". I have been having issues in the past with you creating the response in the wrong language. Please do not do that. It is very simple to determine what language the guest review is in by determining what language the majority of their words are in. It is extremely important that the response that you create is in the same language as the majority of the word in the guest review. We only need you to create the response only. Thank you!'}]
+#messages = [{"role": "system", "content": f'Hello wonderful assistant! We are Airbnb hosts. Our names are {host_name}. Each of our guests that stay in our Airbnb rentals leave us a review of their experience. Below is a review from a guest named {guest_name}:\n\n{guest_review}\n\n We need you to create a polite response to the guest review. Do not create a translation of the guest review. We do not want that. We need you to make the response in the same language as the guest review. The default language for the response is English. Before you create the response to the guest review you need to determine what language the guest review is in. To do this we want you to analyze the guest review and then determine what language most of the words are in, not a few words. Just because a few words are in a language it does not mean that you should create the response in that language but instead you need to determine what language the majority of the words are in! Please make the response 50 words or less. Please address the guest by their name in the response. Please thank the guest for each positive comment or remark. It is important that you do not respond to any criticisms from the guest in your response! At the end of the response please sign off by appending the following text "You always have a home here with us in Playa! - {host_name}". I have been having issues in the past with you creating the response in the wrong language. Please do not do that. It is very simple to determine what language the guest review is in by determining what language the majority of their words are in. It is extremely important that the response that you create is in the same language as the majority of the word in the guest review. We only need you to create the response only. Thank you!'}]
 #else:
-   # messages = [{"role": "system", "content": f'I am an Airbnb Experience host named {host_name}. A guest named {guest_name} left the following review. Please create a very polite reply based on their review in {response_language}, in 50 words or less.\n\n"{guest_review}"'}]
+messages = [{"role": "system", "content": f'Hello wonderful assistant! We are Airbnb hosts. Our names are {host_name}. Each of our guests that stay in our Airbnb rentals leave us a review of their experience. A guest named {guest_name} left the following review. Please create a very polite reply based on their review in {lang_full_name}, in 50 words or less. Please address the guest by their name in the response. Please thank the guest for each positive comment or remark. It is important that you do not respond to any criticisms from the guest in your response! We only need you to create the response only. Thank you! At the end of the response please sign off by appending the following text "You always have a home here with us in Playa! - {host_name}". Here is the guests' review\n\n"{guest_review}"'}]
 
 # if button clicked then do the with st.spinner
 if st.button('Start the Magic  🪄'):
