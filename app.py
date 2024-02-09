@@ -21,7 +21,7 @@ guest_review = st.text_area('Guest Review', placeholder="Paste your Guest's revi
 guest_review = f'"{guest_review}"'
 
 #Language detection
-result = detect_langs(guest_review)
+result = detect(guest_review)
 lang_code = result[0].lang
 lang_full_name = Language.get_name(lang_code)
 
