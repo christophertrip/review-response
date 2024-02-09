@@ -24,13 +24,9 @@ def detect_language_full_name(guest_review):
         return "Error"
 
 st.title('✍️ Review Response')
-#type_of_host = st.selectbox('Choose type of Host:', ('Home Stay 🏠', 'Airbnb Experience 🏄‍♂️'), index=0, help="Choose if this is for a Home Stay or for an Airbnb Experience")
-# hosts = st.checkbox('Chris & Andrea')
-#if type_of_host == "Home Stay 🏠":
-#host_name = st.text_input('Host Name', 'Chris, Andrea & Mitchell', placeholder="Host name", label_visibility="collapsed")
+
 host_name = "Chris & Andrea"
-#else:
-	#host_name = st.text_input('Host Name', placeholder="Host name", label_visibility="collapsed")
+
 guest_name = st.text_input('Guest Name', placeholder="Guest name", label_visibility="collapsed")
 guest_review = st.text_area('Guest Review', placeholder="Paste your Guest's review here. AI will automatically detect the language for the reply.", label_visibility="collapsed", height=250)
 guest_review = f'"{guest_review}"'
@@ -38,25 +34,6 @@ guest_review = f'"{guest_review}"'
 #Language detection
 lang_full_name = detect_language_full_name(guest_review)
 
-#print (guest_review)
-
-# response_language = st.selectbox('Choose response language:', ('English 🇺🇸', 'Spanish 🇲🇽', 'French 🇫🇷'), index=0)
-
-# Different for Homes and Experiences
-#if type_of_host == "Home Stay 🏠":
-	#if response_language == "English 🇺🇸":
-    		#sign_off_text = st.text_input('Custom text at the end of the response: _(Optional)_', 'You always have a home here with us in Playa!', placeholder="Custom text", label_visibility="visible", help="Example: _You always have a home here with us!_")
-	#elif response_language == "Spanish 🇲🇽":
-    		#sign_off_text = st.text_input('Custom text at the end of the response: _(Optional)_', '¡Siempre tienes un hogar aquí con nosotros en Playa!', placeholder="Custom text", label_visibility="visible", help="Example: _You always have a home here with us!_")
-	#else:
-    		#sign_off_text = st.text_input('Custom text at the end of the response: _(Optional)_', 'Vous avez toujours une maison ici avec nous à Playa!', placeholder="Custom text", label_visibility="visible", help="Example: _You always have a home here with us!_")
-#else:
-    #sign_off_text = st.text_input('Custom text at the end of the response: _(Optional)_', 'Pura Vida! 🇨🇷', placeholder="Custom text", label_visibility="visible", help="Example: _Thanks for coming on the adventure!_")
-
-# Different for Homes and Experiences
-#if type_of_host == "Home Stay 🏠":
-#messages = [{"role": "system", "content": f'Hello wonderful assistant! We are Airbnb hosts. Our names are {host_name}. Each of our guests that stay in our Airbnb rentals leave us a review of their experience. Below is a review from a guest named {guest_name}:\n\n{guest_review}\n\n We need you to create a polite response to the guest review. Do not create a translation of the guest review. We do not want that. We need you to make the response in the same language as the guest review. The default language for the response is English. Before you create the response to the guest review you need to determine what language the guest review is in. To do this we want you to analyze the guest review and then determine what language most of the words are in, not a few words. Just because a few words are in a language it does not mean that you should create the response in that language but instead you need to determine what language the majority of the words are in! Please make the response 50 words or less. Please address the guest by their name in the response. Please thank the guest for each positive comment or remark. It is important that you do not respond to any criticisms from the guest in your response! At the end of the response please sign off by appending the following text "You always have a home here with us in Playa! - {host_name}". I have been having issues in the past with you creating the response in the wrong language. Please do not do that. It is very simple to determine what language the guest review is in by determining what language the majority of their words are in. It is extremely important that the response that you create is in the same language as the majority of the word in the guest review. We only need you to create the response only. Thank you!'}]
-#else:
 messages = [{"role": "system", "content": f'Hello wonderful assistant! We are Airbnb hosts. Our names are {host_name}. Each of our guests that stay in our Airbnb rentals leave us a review of their experience. A guest named {guest_name} left the following review:\n\n"{guest_review}"\n\nPlease create a very polite reply based on their review in {lang_full_name}, in 75 words or less. Please address the guest by their name in the response. Please thank the guest for each positive comment or remark. It is important that you do not respond to any criticisms from the guest in your response! At the end of the response please sign off by appending the following text "You always have a home here with us in Playa! - {host_name}".\n\nThank you!'}]
 
 # if button clicked then do the with st.spinner
@@ -65,8 +42,6 @@ if st.button('Start the Magic  🪄'):
     with st.spinner(f"Creating your Reponse..."): 
         response = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=messages)
         review_response = f'{response["choices"][0]["message"]["content"]}'
-	#review_response = f'{response["choices"][0]["message"]["content"]} — {sign_off_text}'
-        #review_response = response["choices"][0]["message"]["content"]
         st.divider()
         st.subheader('Review Response')
         st.code(review_response, language=None)
