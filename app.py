@@ -2,11 +2,26 @@ import streamlit as st
 import streamlit.components.v1 as components
 import openai
 from langdetect import detect
-from langcodes import Language
+import pycountry
 
 st.set_page_config(page_title="Review Response App", page_icon="✍️")
 
 openai.api_key = st.secrets["OPENAI_API"]
+
+# Function to detect GUest review language, provide language code and then return the full name of the language
+def detect_language_full_name(guest_review):
+    try:
+        lang_code = detect(guest_review)
+        if lang_code:
+            # Get the full name of the most probable language
+            lang_full_name = pycountry.languages.get(alpha_2=lang_code)
+            #lang_full_name = Language.get_name(lang_code)
+            return lang_full_name.name
+        else:
+            return "Unknown"
+    except Exception as e:
+        print(f"Error: {e}")
+        return "Error"
 
 st.title('✍️ Review Response')
 #type_of_host = st.selectbox('Choose type of Host:', ('Home Stay 🏠', 'Airbnb Experience 🏄‍♂️'), index=0, help="Choose if this is for a Home Stay or for an Airbnb Experience")
@@ -21,9 +36,7 @@ guest_review = st.text_area('Guest Review', placeholder="Paste your Guest's revi
 guest_review = f'"{guest_review}"'
 
 #Language detection
-result = detect(guest_review)
-lang_code = result[0].lang
-lang_full_name = Language.get_name(lang_code)
+lang_full_name = detect_language_full_name(guest_review)
 
 #print (guest_review)
 
