@@ -1,12 +1,15 @@
 import streamlit as st
 import streamlit.components.v1 as components
-import openai
+# import openai
+from openai import OpenAI
 from langdetect import detect
 import pycountry
 
 st.set_page_config(page_title="Review Response App", page_icon="✍️")
 
-openai.api_key = st.secrets["OPENAI_API"]
+# Set up the OpenAI API key
+openai_api_key = st.secrets["OPENAI_API"]["api_key"]
+client = OpenAI(api_key=openai_api_key)
 
 # Function to detect GUest review language, provide language code and then return the full name of the language
 def detect_language_full_name(guest_review):
@@ -40,8 +43,10 @@ messages = [{"role": "system", "content": f'Hello wonderful assistant! We are Ai
 if st.button('Start the Magic  🪄'):
 
     with st.spinner(f"Creating your Reponse..."): 
-        response = openai.ChatCompletion.create(model="gpt-4o", messages=messages)
-        review_response = f'{response["choices"][0]["message"]["content"]}'
+        #response = openai.ChatCompletion.create(model="gpt-4o", messages=messages)
+	response = client.chat.completions.create(model="gpt-4o", messages=messages)
+        #review_response = f'{response["choices"][0]["message"]["content"]}'
+	review_response = f'{response.choices[0].message.content}'
         st.divider()
         st.subheader('Review Response')
         st.code(review_response, language=None)
