@@ -43,9 +43,7 @@ messages = [{"role": "system", "content": f'Hello wonderful assistant! We are Ai
 if st.button('Start the Magic  🪄'):
 
     with st.spinner(f"Creating your Reponse..."): 
-        #response = openai.ChatCompletion.create(model="gpt-4o", messages=messages)
 	response = client.chat.completions.create(model="gpt-4o", messages=messages)
-        #review_response = f'{response["choices"][0]["message"]["content"]}'
 	review_response = f'{response.choices[0].message.content}'
         st.divider()
         st.subheader('Review Response')
