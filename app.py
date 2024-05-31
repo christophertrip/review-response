@@ -69,6 +69,10 @@ code.language-plaintext {
     padding-bottom: 20px;
 }
 
+.StatusWidget-enter-done {
+    display: none;
+}
+
 span#MainMenu {
     display: none;
 }
