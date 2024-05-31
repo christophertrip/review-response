@@ -62,7 +62,7 @@ code.language-plaintext {
 		}
 
 .block-container {
-    padding-top: 20px;
+    padding-top: 30px;
     padding-bottom: 20px;
 }
 
