@@ -69,7 +69,7 @@ code.language-plaintext {
     padding-bottom: 20px;
 }
 
-.StatusWidget-enter-done {
+.st-emotion-cache-h4xjwg {
     display: none;
 }
 
