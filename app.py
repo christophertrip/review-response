@@ -28,7 +28,7 @@ def detect_language_full_name(guest_review):
 
 st.title('✍️ Review Response')
 
-#ost_name = "Chris & Andrea"
+#host_name = "Chris & Andrea"
 
 guest_name = st.text_input('Guest Name', placeholder="Guest name", label_visibility="collapsed")
 guest_review = st.text_area('Guest Review', placeholder="Paste your Guest's review here. AI will automatically detect the language for the reply.", label_visibility="collapsed", height=250)
