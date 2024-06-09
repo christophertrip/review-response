@@ -40,7 +40,7 @@ lang_full_name = detect_language_full_name(guest_review)
 messages = [{"role": "system", "content": f'Hello wonderful assistant! We are Airbnb hosts. Our names are {host_name}. Each of our guests that stay in our Airbnb rentals leave us a review of their experience. A guest named {guest_name} left the following review:\n\n"{guest_review}"\n\nPlease create a very polite reply based on their review in {lang_full_name}, in 75 words or less. Please address the guest by their name in the response. Please thank the guest for each positive comment or remark. It is important that you do not respond to any criticisms from the guest in your response! At the end of the response please sign off by appending the following text "You always have a home here with us in Playa!".\n\nThank you!'}]
 
 # if button clicked then do the with st.spinner
-if st.button('Start the Magic12  🪄'):
+if st.button('Start the Magic  🪄'):
 
     with st.spinner(f"Creating your Reponse..."): 
 	    response = client.chat.completions.create(model="gpt-4o", messages=messages)
