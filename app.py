@@ -37,7 +37,7 @@ guest_review = f'"{guest_review}"'
 #Language detection
 lang_full_name = detect_language_full_name(guest_review)
 
-messages = [{"role": "system", "content": f'Hello wonderful assistant! We are Airbnb hosts. Each of our guests that stay in our Airbnb rentals leave us a review of their experience. A guest named {guest_name} left the following review:\n\n"{guest_review}"\n\nPlease create a very polite reply based on their review in {lang_full_name}, in 75 words or less. Please address the guest by their name in the response. Please thank the guest for each positive comment or remark. It is important that you do not respond to any criticisms from the guest in your response! At the end of the response please sign off by appending the following text "You always have a home here with us in Playa!".\n\nThank you!'}]
+messages = [{"role": "system", "content": f'Hello wonderful assistant! We are Airbnb hosts. Each of our guests that stay in our Airbnb rentals leave us a review of their experience. A guest named {guest_name} left the following review:\n\n"{guest_review}"\n\nPlease create a very polite reply based on their review in {lang_full_name}, in 75 words or less. Please address the guest by their name in the response. Please thank the guest for each positive comment or remark. It is important that you do not respond to any criticisms from the guest in your response! At the end of the response please sign off by appending the following text "You always have a home here with us in Playa!".\n\nThank you! and nothing else.'}]
 
 # if button clicked then do the with st.spinner
 if st.button('Start the Magic  🪄'):
